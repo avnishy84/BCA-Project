@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+		table {
+		  border-collapse: collapse;
+		  width: 100%;
+		}
+
+		th, td {
+		  padding: 4px;
+		  text-align: left;
+		  border-bottom: 1px solid #ddd;
+		}
+		
+		</style>
+	</head>
+{% extends 'base.html' %}
+{% block content %}
+<header id="header"><h1 align='center' >Here Is Entries of all Visitors</h1></header>
+
+<!--------------------logout sxn--------------------------------------->
+<div class="navigation">
+<a class="buttonl" href="logout">
+<div class="logout">LOGOUT</div>
+</a></div>
+<!----------------------------------------------------------->
+
+
+<main id="center" class="column">
+<article>
+<h2>New Entry</h2>
+<table align="center" cellpadding = "10">
+ <form action="newentry" method="post" >
+ {% csrf_token %}
+
+ 
+<!----- Purpose ---------------------------------------------------------->
+<tr>
+<td>PURPOSE</td>
+<td><input type="text" placeholder="Enter Purpose" name="pur" required required>
+</td>
+</tr>
+
+<!----- Full name ---------------------------------------------------------->
+<tr>
+<td>FULLNAME</td>
+<td><input type="text" placeholder="Enter Fullname" name="fullname" maxlength="30" required>
+(max 30 char)
+</td>
+</tr>
+
+<!----- Mobile Number ---------------------------------------------------------->
+<tr>
+<td>MOBILE NUMBER</td>
+<td>
+<input type="text" placeholder="Mobile Number" name="mobile" maxlength="10" minlength="10" required>
+(10 digit number)
+</td>
+</tr>
+ 
+<!----- Submit and Reset ------------------------------------------------->
+<tr>
+<td colspan="2" align="center">
+<button class="button" ><span>Submit </span></button>
+<button class="button" type="reset"><span>Reset</span></button>
+</td>
+</tr>
+</form>
+</table
+<div>
+	
+<h2>Previous Records</h2>
+<table width="100%">
+  <tr>
+    <th>PURPOSE</th>
+    <th>NAME</th>
+	<th>MOBILE</th>
+	<th>ENTRY TIME</th>
+	
+	<th>EXIT TIME</th>
+  </tr>
+  {% for i in res %}
+  <tr>
+    
+	<td>{{i.date}}</td>
+	<td>{{i.name}}</td>
+	<td>{{i.mobile}}</td>
+	<td>{{i.entrytime}}</td>
+	<td><a href="update_exit?id={{i.id}}">Exit | </a>{{i.exittime}}</td>
+	
+	{% endfor %}
+  </tr>
+</table>
+
+
+
+  
+</div>
+<h2>{{msg}} {{error}}</h2>
+	</div>
+	</main>
+{% endblock %}
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Welcome To Security gaurd Page<h1/>
+<table width="100%">
+	<tr>
+		<td>
+			<h2>Login with Existing Account </h2>
+			<form action="slogin" method="post" align="center" >
+			{% csrf_token %}
+			
+			<label for="suser"><b>Username:</b></label>
+				<input type="text" placeholder="Enter Username" name="suser" required>
+				<br>
+			<label for="spass"><b>password:</b></label>
+				<input type="password" placeholder="Enter password" name="spass" required>
+				<br>
+			<button class="button"><span>Login </span></button>
+			</form>
+		</td>
+</table>
+<h2>{{error}}</h2>
+<div class="loading"  >
+      <span>AVNISH...</span>
+    </div>
+{% endblock %}

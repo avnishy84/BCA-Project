@@ -1,0 +1,58 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<title>ENTRY EXIT</title>
+
+</head>
+{% extends 'base.html' %}
+{% block content %}
+
+<header id="header"><h1 align='center' >Welcome To Security gaurd Page</h1></header>
+<div id="container">
+<main id="center" class="column">
+<table >
+	<tr>
+		<td>
+			
+			
+			<article>
+			<h2 align='center'>Login with Existing Account </h2>
+			<form action="slogin" method="post" align="center" >
+			{% csrf_token %}
+			
+			<label for="suser"><b>Username:</b></label>
+				<input type="text" placeholder="Enter Username" name="suser" required>
+				<br>
+			<label for="spass"><b>password:</b></label>
+				<input type="password" placeholder="Enter password" name="spass" required>
+				<br>
+			<button class="button"><span>Login </span></button>
+			</form>
+			</article>
+			
+		</td>
+	</tr>
+</table>
+<h2>{{error}}</h2>
+</main>
+<nav id="left" class="column">
+			<h3><a href="home" ><b>Home</b> </a></h3>
+									
+			<h3><a href="#" ><b>Guard section</b></h3>
+			
+		</nav>
+
+
+	
+	<div id="right" class="column">
+			<h3>Credit</h3>
+			<div class="loading"  >
+				<span>AVNISH...</span>
+			</div>
+		</div>
+
+	</div>
+	<div id="footer-wrapper">
+		<footer id="footer"><p align="center" >Copyright © 2019 All rights reserved by Compufy Technology<p></footer>
+	</div>
+{% endblock %}

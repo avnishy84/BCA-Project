@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+	<header id="header"><H1 align='center' >Welcome to Entry Exit Management System</H1></header>
+	
+	<div id="container">
+	<main id="center" class="column">
+	<article>
+	<h2>This is Gaurd section</h2>
+	<h4>Hello {{fname}} {{lname}} Your details <br> Date of join:{{doj}}<br> Mobile No.: {{mobile}}<br> E-mail: {{email}}<h4/>
+	
+	</article>
+	</main>
+	
+	<nav id="left" class="column">
+	<h3><a href="logout" >Logout</a></h3>
+	<h3><a href="gaurdent">Entry Section</a></h3>
+	</nav>
+			<div id="right" class="column">
+				<h3>Credit</h3>
+				<div class="loading"  >
+					<span>AVNISH...</span>
+				</div>
+			</div>
+
+	</div>
+	<div id="footer-wrapper">
+		<footer id="footer"><p align="center" >Copyright © 2019 All rights reserved by Compufy Technology<p></footer>
+	</div>
+{% endblock %}

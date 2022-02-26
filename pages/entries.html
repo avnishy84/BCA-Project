@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th, td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+</style>
+</head>
+{% extends 'base.html' %}
+{% block content %}
+
+
+<header id="header"><H1 align='center' >Here Is Entries of all Visitors</H1></header>
+<p><a href="home" class="button"><b>Home</b></a></p>
+<table>
+  <tr>
+    <th>PURPOSE</th>
+    <th>NAME</th>
+	<th>MOBILE</th>
+	<th>ENTRY TIME</th>
+	<th>EXIT TIME</th>
+	<th>EDIT FIELDS</th>
+  </tr>
+  {% for i in res %}
+  <tr>
+    
+	<td>{{i.date}}</td>
+	<td>{{i.name}}</td>
+	<td>{{i.mobile}}</td>
+	<td>{{i.entrytime}}</td>
+	<td>{{i.exittime}}</td>
+	<td><a href="update_delete?id={{i.id}}">Delete</a></td>
+	{% endfor %}
+  </tr>
+</table>
+
+
+</body>
+</html>
+
+{% endblock %}
